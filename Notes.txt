@@ -1,0 +1,88 @@
+create user:
+----------------------------------
+mutation{
+  createUser(name:"Shivam tiwari",email:"Shivam.tiwari@cognizant.com",phone:"7083388650"){
+    name,
+    Id
+  }
+}
+---------------------------------
+{
+  "data": {
+    "createUser": {
+      "name": "Shivam tiwari",
+      "Id": 2
+    }
+  }
+}
+---------------------------------
+---------------------------------
+deleteUser:
+---------------------------------
+mutation{
+  deleteUser(Id:2)
+}
+---------------------------------
+{
+  "data": {
+    "deleteUser": true
+  }
+}
+---------------------------------
+------------------------------
+create order:
+--------------------------------
+mutation{
+  createOrder(orderDetails:"this is second order",address:"anikat road",price:12,userid:1){
+    orderId,
+    orderDetails
+   
+    
+  }
+}
+---------------------------------
+{
+  "data": {
+    "createOrder": {
+      "orderId": 2,
+      "orderDetails": "this is second order"
+    }
+  }
+}
+----------------------------------
+----------------------------------
+----------------------------------
+getuser:
+----------------------------------
+query{
+  getusers{
+    name,phone,orders {
+      orderDetails
+      address
+      price
+    } 
+  }
+}
+----------------------------------
+{
+  "data": {
+    "getusers": [
+      {
+        "name": "Sushil tiwari",
+        "phone": "7083388650",
+        "orders": [
+          {
+            "orderDetails": "this is first order",
+            "address": "anikat road",
+            "price": 12
+          },
+          {
+            "orderDetails": "this is second order",
+            "address": "anikat road",
+            "price": 12
+          }
+        ]
+      }
+    ]
+  }
+}
